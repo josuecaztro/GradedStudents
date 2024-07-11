@@ -1,9 +1,6 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.*;
 
 public class Classroom {
 
@@ -53,8 +50,10 @@ public class Classroom {
     }
 
     public Student[] getStudentsByScore(){
-
-        return null;
+        List<Student> studentsAsList = new ArrayList<>(Arrays.asList(students));
+        studentsAsList.sort(Student::compareTo);
+        Collections.reverse(studentsAsList);
+        return studentsAsList.toArray(new Student[0]);
     }
 
 //    The class Classroom should define a method getGradeBook() which returns a mapping of
